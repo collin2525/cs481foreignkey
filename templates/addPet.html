@@ -1,0 +1,40 @@
+<html>
+  <body>
+    <a href="/">home</a>
+    <form method="post" action="/aP">
+    <table>
+      <tr>
+        <td>Owner:</td>
+        <td><select name="myOwner">
+            {% for i in owners %}
+            <option value="{{i.id}}">{{i.name}}</option>
+            {% endfor %}
+            </select>
+        </td>
+      </tr>
+      <tr><td>Species:</td>
+        <td><select name="mySpecies">
+          {% for i in species %}
+          <option value="{{i.id}}">{{i.name}}</option>
+          {% endfor %}
+        </select></td>
+      </tr>   
+      <tr>
+        <td>Name:</td>
+        <td> <input type="text" name="name"/></td>
+      </tr>
+    </table>
+    <input type="submit"/>   
+    </form>
+    <table>
+      <tr><th>Pet</th><th>Species</th><th>Owner</th></tr>
+    {% for i in pets %}
+    <tr>
+      <td>{{i.name}}</td>
+      <td>{{i.species}}</td>
+      <td>{{i.owner}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+  </body>
+</html>

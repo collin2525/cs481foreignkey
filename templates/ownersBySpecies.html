@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <form method="post" action="/oBS">
+    <select name="mySpecies">
+      {% for i in species %}
+        <option value="{{i.id}}">{{i.name}}</option>
+      {% endfor %}
+    </select>
+    </form>
+    {% for i in owners %}
+    {{i.name}}<br/>
+    {% endfor %}
+  </body>
+</html>

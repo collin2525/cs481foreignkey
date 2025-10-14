@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <form method="post" action="/pBO">
+    <select name="myOwner">
+      {% for i in owners %}
+        <option value="{{i.id}}">{{i.name}}</option>
+      {% endfor %}
+    </select>
+    </form>
+    {% for i in pets %}
+    {{i.name}}<br/>
+    {% endfor %}
+  </body>
+</html>

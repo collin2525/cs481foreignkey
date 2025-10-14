@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <a href="/">home</a>
+    <form method="post" action="/aO">
+    Name: <input type="text" name="name"/><br/>
+    <input type="submit"/>   
+    </form>
+    <table>
+    {% for i in owners %}
+    <tr><td>{{i.name}}</td></tr>
+    {% endfor %}
+    </table>
+  </body>
+</html>
