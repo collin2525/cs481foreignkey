@@ -51,6 +51,14 @@ class AddPet(View):
 class OBS(View):
     pass
 
-class PBO(View):
-    pass
+
+class PetsByOwner(View):
+    def get(self, request):
+        return render(request, 'pbo.html', {"owners": list(Owner.objects.all()), "pets": []})
+
+    def post(self, request):
+        owner_name = request.POST["owner"]
+        pets = list(Pet.objects.filter(owner__name=owner_name))
+        owners = list(Owner.objects.all())
+        return render(request, 'pbo.html', {"owners": owners, "pets": pets})
 

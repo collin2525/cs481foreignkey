@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="/">home</a>
+
+    <form method="post" action="/petsBO">
+      {% csrf_token %}
+      <label for="owner">Owner:</label>
+      <select id="owner" name="owner">
+        {% for owner in owners %}
+          <option value="{{ owner.name }}">{{ owner.name }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Show Pets" />
+    </form>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Species</th>
+      </tr>
+      {% for pet in pets %}
+        <tr>
+          <td>{{ pet.name }}</td>
+          <td>{{ pet.species }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
